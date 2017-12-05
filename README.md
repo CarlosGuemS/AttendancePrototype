@@ -1,4 +1,4 @@
-# AttendancePrototype
+# Attendance Prototype
 MEAN stack project used to measure the atendance of students into a given subject.
 The project is divided into the backend, which uses Node, Express and Mongoose; the frontend, which uses Angular; and the database which uses MongoDB.
 
