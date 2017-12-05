@@ -1,0 +1,25 @@
+<div class = "container">
+  <div class = "container" *ngIf = "showStudentList">
+    <!--> Component that manages the Student Table <!-->
+    <app-student-list [students] = "studentList" (studentDetail)="handleStudentDetail($event)">
+    </app-student-list>
+  </div>
+  <div class = "container" *ngIf = "showStudentDetail">
+    <!--> Component that manages the Student Detail <!-->
+    <app-student-detail
+      [selectedStudent] = "studentDetail"
+      [selStudentTimeStampsPard] = "studentTimeStampsPard"
+      [selStudentTimeStampsNPard] = "studentTimeStampsNPard"
+      [selStudentFilteredTimeStamps] = "studentFilteredTimeStamps"
+      (createTimeStamp) = "handleTimeStampCreation($event)"
+      (updateTimeStamp) = "handleTimeStampUpdate($event)"
+      (deleteTimeStamp) = "handleTimeStampDeletion($event)"
+    ></app-student-detail>
+  </div>
+  <div class = "container" *ngIf = "loadingStudentDetail">
+    <h4> Loading...</h4> <!-->Loading message <!-->
+  </div>
+  <div class = "container" *ngIf = "studentErrorDetail">
+    <h6> {{studentErrorDetail}}  </h6> <!--> Error message <!-->
+  </div>
+</div>

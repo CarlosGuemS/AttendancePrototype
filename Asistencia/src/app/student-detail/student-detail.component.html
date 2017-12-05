@@ -1,0 +1,81 @@
+<h2> Selected Student </h2> <!--> Table that displays the selected student's details <!-->
+<table class="table table-striped" style = "dissplay:inline-block">
+	<tbody>
+		<tr>
+			<td> Student ID </td>
+			<td> {{selectedStudent.id}} </td>
+		</tr> <tr>
+			<td> Apellido Paterno </td>
+			<td> <p *ngIf = "selectedStudent.apellidoPaterno"> {{selectedStudent.apellidoPaterno}} </p> </td>
+		</tr> <tr>
+			<td> Apellido Materno </td>
+			<td> <p *ngIf = "selectedStudent.apellidoMaterno"> {{selectedStudent.apellidoMaterno}} </p> </td>
+		</tr> <tr>
+			<td> Primer nombre </td>
+			<td> <p *ngIf = "selectedStudent.primerNombre"> {{selectedStudent.primerNombre}} </p> </td>
+		</tr> <tr>
+			<td> Segundo nombre </td>
+			<td> <p *ngIf = "selectedStudent.segundoNombre"> {{selectedStudent.segundoNombre}}</p> </td>
+		</tr> <tr>
+			<td> DNI </td>
+			<td> {{selectedStudent.dni}} </td>
+		</tr> <tr>
+			<td> Email </td>
+			<td> {{selectedStudent.email}} </td>
+		</tr>
+	</tbody>
+</table>
+
+<!--> Table that shows all the timestamps
+	  Mostly for Debuging <!-->
+<table class="table table-striped" style = "display:inline-block">
+	<thead> <th> TimeStamps: </th></thead>
+	<tbody>
+		<tr *ngFor="let timestamp of selStudentTimeStampsNPard">
+			<td> {{timestamp.time | date:'short'}} </td>
+		</tr>
+		<th> Added afterwards </th>
+		<tr *ngFor="let timestamp of selStudentTimeStampsPard">
+			<td> {{timestamp.time | date:'short'}} </td>
+		</tr>
+	</tbody>
+</table>
+
+<!-->Table that shows the classes of the given subject
+	 and its attendance rate.
+	 For this prototype only one subject is considered<!-->
+<h4> {{selStudentFilteredTimeStamps.name}} </h4>
+<table class="table table-striped" style = "display:inline-block">
+	<thead>
+		<th> Class start: </th>
+		<th> Class end: </th>
+		<th> Status: </th>
+		<th> Options: </th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let seminar of selStudentFilteredTimeStamps.seminars">
+			<td> {{seminar.timeStart | date:'short'}} </td>
+			<td> {{seminar.timeEnd | date:'short'}} </td>
+
+			<td *ngIf = "seminar.status == 0"> Not yet completed </td>
+			<td style="background-color: #53f442" *ngIf = "seminar.pardoned == false && seminar.status == 1"> On time </td>
+			<td style="background-color: #278fdd" *ngIf = "seminar.pardoned == true"> {{seminar.comment}} </td>
+			<td style="background-color: #c91212" *ngIf = "seminar.status == 2"> Did not attend </td>
+			<td style="background-color: #f48941" *ngIf = "seminar.status == 3"> Late by {{seminar.offset}} minutes </td>
+			<td style="background-color: #f4d341" *ngIf = "seminar.status == 4"> Left early </td>
+
+			<!--> Code to create, modify and delete timestamp exceptions (pardons by the teacher) <!-->
+			<td *ngIf = "seminar.pardoned == false">
+				<button class="btn btn-default btn-sm" (click) = "handleCreateTimeStamp(seminar.timeStart)" >Add Exception</button>
+			</td>
+        	<td *ngIf = "seminar.pardoned == true">
+        		<app-timestamp-edit
+	        		[originalContent] = "seminar"
+	        		(result) = "handleCommentUpdate($event)"
+	        	></app-timestamp-edit> 
+        		<button type="button" class="btn btn-danger btn-sm" (click) = "handleDeleteTimeStamp(seminar)">Remove Exception</button>
+        	</td>
+        	<td> {{seminar.showEdit}} </td>
+		</tr>
+	</tbody>
+</table>

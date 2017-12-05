@@ -1,0 +1,18 @@
+<h2> Student List </h2>
+
+<!--> Imported component <!-->
+<ng2-smart-table 
+	[settings]="settings"
+	[source] = "students"
+	(userRowSelect) = "secondarySelectStudent($event)"
+
+></ng2-smart-table>
+
+<h2> Search Students </h2> <!--> Search box <!-->
+<form [formGroup]="input">
+	<div class= "form-group">
+		<input class = "form-control" formControlName="id" placeholder="Student's id">
+	</div>
+	<button type = "submit" class="btn btn-success"
+	(click) = "selectStudent()"> Search for User </button>
+</form>	
