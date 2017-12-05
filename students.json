@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5a26f1033e1c0707e82594c7"},"id":"0","apellidoPaterno":"a","apellidoMaterno":"test","primerNombre":"this","segundoNombre":"is","dni":"00000000F","email":"notReal@test.com","rfid":"0"}
+{"_id":{"$oid":"5a26f1a93e1c0707e82594c8"},"id":"1","dni":"00000000Z","email":"alternative@test.com","rfid":"1"}

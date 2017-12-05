@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5a26f4803e1c0707e82594c9"},"id":"0","time":1.5072084e+09}
+{"_id":{"$oid":"5a26f556f3b3770740e5d92c"},"id":"0","time":1507127400,"pardoned":true,"comment":"Next one the student attends in time","__v":0}
+{"_id":{"$oid":"5a26f5753e1c0707e82594ca"},"id":"0","time":1.5072138e+09}
+{"_id":{"$oid":"5a26f5e6f3b3770740e5d92d"},"id":"0","time":1507732200,"pardoned":true,"comment":"Next one arrives 5 min. late","__v":0}
+{"_id":{"$oid":"5a26f6203e1c0707e82594cb"},"id":"0","time":1.5078135e+09}
+{"_id":{"$oid":"5a26f6353e1c0707e82594cc"},"id":"0","time":1.5078186e+09}
+{"_id":{"$oid":"5a26f64af3b3770740e5d92e"},"id":"0","time":1508337000,"pardoned":true,"comment":"Next one leaves early","__v":0}
+{"_id":{"$oid":"5a26f66e3e1c0707e82594ce"},"id":"0","time":1.508418e+09}
+{"_id":{"$oid":"5a26f699f3b3770740e5d92f"},"id":"0","time":1508941800,"pardoned":true,"comment":"Since there are more timestamps, they show the classes as being skipped","__v":0}
